@@ -1,6 +1,7 @@
 import http from "node:http";
 import express from "express";
 import { matchRouter } from "./routes/matches.ts";
+import { commentaryRouter } from "./routes/commentary.ts";
 import { attachWebSocketServer } from "./ws/server.ts";
 
 const PORT = Number(process.env.PORT || 8000);
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/matches", matchRouter);
+app.use("/matches/:id/commentary", commentaryRouter);
 
 const { broadcastMatchCreated } = attachWebSocketServer(server);
 
