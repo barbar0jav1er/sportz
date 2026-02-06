@@ -45,3 +45,4 @@ export const commentary = pgTable("commentary", {
 });
 
 export type Match = typeof matches.$inferSelect;
+export type Commentary = typeof commentary.$inferSelect;
